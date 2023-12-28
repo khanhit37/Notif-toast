@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap");
+
+:root {
+  --success: rgb(116, 189, 116);
+  --warning: rgb(255, 165, 0);
+  --error: rgb(255, 0, 0);
+
+  --success-line: rgba(26, 190, 26, 0.4);
+  --warning-line: rgb(255, 165, 0, 0.4);
+  --error-line: rgb(255, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.control button {
+  padding: 8px 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  margin: 0 10px;
+}
+
+.success {
+  background: var(--success);
+}
+
+.warning {
+  background: var(--warning);
+}
+
+.error {
+  background: var(--error);
+}
+
+#toasts {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.toast {
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 22px;
+  overflow: hidden;
+  animation: slide_show 2s ease forwards;
+  margin-bottom: 10px;
+}
+
+.toast i {
+  margin: 0 10px;
+}
+.toast .countdown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  animation: countdown 3s ease;
+}
+
+.toast.success {
+  background: var(--success-line);
+  border-left: 6px solid var(--success);
+}
+
+.toast.warning {
+  background: var(--warning-line);
+  border-left: 6px solid var(--warning);
+}
+
+.toast.error {
+  background: var(--error-line);
+  border-left: 6px solid var(--error);
+}
+
+.toast.success .countdown {
+  background: var(--success);
+}
+
+.toast.warning .countdown {
+  background: var(--warning);
+}
+
+.toast.error .countdown {
+  background: var(--error);
+}
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes slide_show {
+  0% {
+    transform: translateX(100%);
+  }
+  25% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes slide_hide {
+  0% {
+    transform: translateX(-10%);
+  }
+  25% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
